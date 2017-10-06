@@ -1,9 +1,17 @@
+#include <gtest/gtest.h>
 #include <algorithm>
 #include <array>
+#include <iostream>
 #include <vector>
 
 template <std::size_t N, typename T, bool use_heap>
 struct Array {
+    Array() {
+        if (use_heap) {
+            _vector.reserve(N);
+        }
+    }
+
     T& operator[](std::size_t index) {
         if (use_heap) {
             return _vector[index];
@@ -33,7 +41,15 @@ struct Array {
     std::array<T, N> _array;
 };
 
-int main(int, char* []) {
-    Array<10, int, false> arr;
-    return 0;
+TEST(Array, simpl) {
+    Array<10, int, false> stack;
+    Array<10, int, true> heap;
+
+    // uninitialized
+    EXPECT_NE(stack[0], 0);
+
+    stack[5] = 10;
+    heap[5] = 10;
+    EXPECT_EQ(stack[5], 10);
+    EXPECT_EQ(heap[5], 10);
 }

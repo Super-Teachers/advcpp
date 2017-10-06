@@ -1,0 +1,11 @@
+macro(add_exec file)
+    add_executable(${file} ${file}.cpp)
+    target_include_directories(${file} PRIVATE ${GTEST_INCLUDE_DIRS})
+    target_link_libraries(${file} ${GTEST_BOTH_LIBRARIES})
+    gtest_add_tests(${file} "" ${file}.cpp)
+endmacro()
+
+add_exec(template_array)
+add_exec(circular_buffer)
+#add_exec(template_array2)
+#add_exec(template_array3)

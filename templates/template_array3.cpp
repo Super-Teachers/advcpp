@@ -4,9 +4,7 @@
 
 template <std::size_t N, typename T, bool use_heap>
 struct Array {
-    T& operator[](std::size_t index) {
-        return _data[index];
-    }
+    T& operator[](std::size_t index) { return _data[index]; }
     const T& operator[](std::size_t index) const { return _data[index]; }
 
     auto min() const {
