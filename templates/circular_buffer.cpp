@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
-#include <array>
+#include <iostream>
 #include <sstream>
+
+#include <array>
 
 template <typename T, std::size_t N>
 struct CircularBuffer {
@@ -43,10 +45,10 @@ TEST(CircularBuffer, initialized_by_list) {
 
 TEST(CircularBuffer, stream_operator) {
     using namespace std::string_literals;
-    CircularBuffer<std::string, 2> buffer{{"one"s, "two"s}};
-    std::stringstream ss; 
+    CircularBuffer<std::string, 2> buffer{{std::string{"one"}}};
+    std::stringstream ss;
     ss << buffer;
-    EXPECT_EQ(ss.str(), "onetwo");
+    EXPECT_EQ(ss.str(), "one");
 }
 
 TEST(CircularBuffer, initialized_too_big) {

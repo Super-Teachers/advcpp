@@ -24,6 +24,5 @@ int main(int, char* []) {
     Array<10, int, false> arr;
 
     arr[9] = 0;
-
     return 0;
 }
