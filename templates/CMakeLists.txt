@@ -1,7 +1,7 @@
 macro(add_exec file)
     add_executable(${file} ${file}.cpp)
-    target_include_directories(${file} PRIVATE ${GTEST_INCLUDE_DIRS})
-    target_link_libraries(${file} ${GTEST_BOTH_LIBRARIES})
+    target_include_directories(${file} PRIVATE ${CMAKE_SOURCE_DIR}/googletest/googletest/include)
+    target_link_libraries(${file} gtest gtest_main)
     gtest_add_tests(${file} "" ${file}.cpp)
 endmacro()
 

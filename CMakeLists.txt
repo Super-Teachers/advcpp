@@ -4,7 +4,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_definitions(-std=c++17)
 
-find_package(GTest REQUIRED)
 enable_testing()
 
+include(GoogleTest)
+add_subdirectory(googletest/googletest)
 add_subdirectory(templates)
