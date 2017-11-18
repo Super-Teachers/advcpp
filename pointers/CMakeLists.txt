@@ -6,3 +6,4 @@ macro(add_exec file)
 endmacro()
 
 add_exec(min_element)
+add_exec(shape)
